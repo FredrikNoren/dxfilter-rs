@@ -466,7 +466,7 @@ impl ScaleARGBOrAYUV {
         let ps = simple_ps(device.clone())?;
         let vs = simple_vs(device.clone())?;
 
-        let srv = create_srv(device, input_tex, DXGI_FORMAT_R8G8B8A8_UNORM)?;
+        let srv = create_srv(device, input_tex, DXGI_FORMAT_B8G8R8A8_UNORM)?;
         let sampler = create_tex_sampler(device)?;
         let rtv = create_rtv(device, out_tex, DXGI_FORMAT_R8G8B8A8_UNORM)?;
 
