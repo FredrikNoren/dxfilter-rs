@@ -656,10 +656,10 @@ fn create_srv(dev: &ID3D11Device4, tex: &Texture, format: DXGI_FORMAT) -> Result
         Format: format,
         ViewDimension: D3D_SRV_DIMENSION_TEXTURE2D,
         Anonymous: Default::default(),
-    };
+    }; 
     srv_desc.Anonymous.Texture2D = D3D11_TEX2D_SRV {
         MostDetailedMip: 0,
-        MipLevels: 1,
+        MipLevels: -1i32 as u32, // 0xFFFFFFFF = all mip levels
     };
     let mut srv = None;
     if let Err(e) = unsafe { dev.CreateShaderResourceView(tex.as_raw_ref(), Some(&srv_desc), Some(&mut srv)) } {
